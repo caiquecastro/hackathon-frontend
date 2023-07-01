@@ -27,11 +27,6 @@ jobs:
       - name: Build
         run: npm test
 
-      # - name: SonarCloud Scan
-      #   uses: sonarsource/sonarcloud-github-action@master #https://github.com/marketplace/actions/sonarcloud-scan
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
       - name: Docker Login
         run: |
           echo '${{ secrets.GOOGLE_CREDENTIALS }}' > key.json
@@ -64,6 +59,7 @@ jobs:
           flags: "--allow-unauthenticated"
           env_vars: |
             API_URL=${{ vars.BACKEND_URL_HOMOLOG }}
+            BACKEND_URL=${{ vars.BACKEND_URL_HOMOLOG }}
 
       - name: Test Homolog
         run: 'curl "${{ steps.homolog-deploy.outputs.url }}"'
@@ -90,6 +86,7 @@ jobs:
           flags: '--allow-unauthenticated'
           env_vars: |
             API_URL=${{ vars.BACKEND_URL_PROD }}
+            BACKEND_URL=${{ vars.BACKEND_URL_PROD }}
 
       - name: Test Prod
         run: 'curl "${{ steps.prod-deploy.outputs.url }}"'
