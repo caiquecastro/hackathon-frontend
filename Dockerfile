@@ -6,6 +6,8 @@ ARG API_URL
 
 ENV BACKEND_URL=${API_URL}
 
+RUN env
+
 COPY . ./
 RUN yarn
 RUN yarn build
