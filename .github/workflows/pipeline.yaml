@@ -16,16 +16,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      # - name: Setup Node
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-      # - name: Install Dependencies
-      #   run: npm install
+      - name: Install Dependencies
+        run: npm install
 
-      # - name: Build
-      #   run: npm run build
+      - name: Build
+        run: npm test
 
       # - name: SonarCloud Scan
       #   uses: sonarsource/sonarcloud-github-action@master #https://github.com/marketplace/actions/sonarcloud-scan
