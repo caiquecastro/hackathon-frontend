@@ -12,6 +12,8 @@ function App() {
       		 .catch((err) => console.log("error"));
 	}, []);
   return (
+    <div>
+    <h1>Music Library</h1>
     <div class="divTable">
       {data &&
         data.map((element, index) => (
@@ -22,6 +24,7 @@ function App() {
           <div class="divCell" align="center">{element.genre}</div>
           </div>
         ))}
+    </div>
     </div>
   );
 
