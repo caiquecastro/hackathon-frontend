@@ -14,14 +14,14 @@ function App() {
   return (
     <div>
     <h1>Music Library</h1>
-    <div class="divTable">
+    <div className="divTable">
       {data &&
         data.map((element, index) => (
-        <div class="headRow">
-          <div class="divCell" align="center">{element.song_id}</div>
-          <div class="divCell divCellName">{element.title}</div>
-          <div class="divCell divCellName">{element.artist}</div>
-          <div class="divCell" align="center">{element.genre}</div>
+        <div className="headRow">
+          <div className="divCell" align="center">{element.song_id}</div>
+          <div className="divCell divCellName">{element.title}</div>
+          <div className="divCell divCellName">{element.artist}</div>
+          <div className="divCell" align="center">{element.genre}</div>
           </div>
         ))}
     </div>
