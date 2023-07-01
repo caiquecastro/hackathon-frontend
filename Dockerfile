@@ -1,6 +1,11 @@
 # build environment
 FROM node:18-alpine as react-build
 WORKDIR /app
+
+ARG API_URL
+
+ENV BACKEND_URL=${API_URL}
+
 COPY . ./
 RUN yarn
 RUN yarn build
