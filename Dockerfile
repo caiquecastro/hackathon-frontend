@@ -2,10 +2,6 @@
 FROM node:18-alpine as react-build
 WORKDIR /app
 
-ARG API_URL
-
-ENV BACKEND_URL=${API_URL}
-
 RUN env
 
 COPY . ./
@@ -22,7 +18,7 @@ ARG API_URL
 
 ENV PORT 8080
 ENV HOST 0.0.0.0
-ENV BACKEND_URL=${API_URL}
+ENV BACKEND_URL "http://backend"
 
 EXPOSE 8080
 CMD sh -c "envsubst '\$PORT \$BACKEND_URL' < /etc/nginx/conf.d/configfile.template > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
