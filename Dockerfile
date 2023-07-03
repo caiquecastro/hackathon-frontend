@@ -2,11 +2,11 @@
 FROM node:18-alpine as react-build
 WORKDIR /app
 
-RUN env
+COPY package.json package-lock.json ./
+RUN npm install
 
 COPY . ./
-RUN yarn
-RUN yarn build
+RUN npm run build
 
 # server environment
 FROM nginx:alpine
